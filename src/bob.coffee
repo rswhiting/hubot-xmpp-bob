@@ -71,7 +71,9 @@ module.exports = (robot) ->
       
       # Check if this iq message is a request for data we know
       stanza = jp.args[0]
+      console.log "Reading"
       if stanza.attrs.type is 'get' and stanza.children[0].name is 'data'
+        console.log "It is data"
         data = stanza.children[0]
         if data.attrs.xmlns is 'urn:xmpp:bob'
           content = cids[data.attrs.cid]
