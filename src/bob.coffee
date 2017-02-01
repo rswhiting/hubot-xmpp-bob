@@ -58,7 +58,7 @@ module.exports = (robot) ->
             xmlns: 'http://jabber.org/protocol/xhtml-im'
           body = html.c 'body',
             xmlns: 'http://www.w3.org/1999/xhtml'
-          p = body.c('p')#, {href: image})
+          p = body.c('p')
           p.c('img', {src: 'cid:' + cid})
           p.c('br')
           p.t(text.substring(0,text.indexOf(image)))
@@ -111,7 +111,7 @@ module.exports = (robot) ->
 
                     # Resize the image. This ensures that we fall within the size limits
                   else
-                    sharp(body).resize(600).quality(80).toBuffer().then (buffer) ->
+                    sharp(body).resize(200).quality(80).toBuffer().then (buffer) ->
                       content.handle buffer.toString('base64'), contentType
 
   # Handle reconnections
