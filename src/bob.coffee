@@ -59,11 +59,11 @@ module.exports = (robot) ->
           body = html.c 'body',
             xmlns: 'http://www.w3.org/1999/xhtml'
           p = body.c('p')
-          p.c('img', {src: 'cid:' + cid})
-          p.c('br')
           p.t(text.substring(0,text.indexOf(image)))
           p.c('a', {href: image}).t('[image]')
           p.t(text.substring(text.indexOf(image) + image.length))
+          p.c('br')
+          p.c('img', {src: 'cid:' + cid})
 
       return jp.proceed()
 
